@@ -46,7 +46,21 @@ void printTail(Node* head)
         }
        cout << "Tail node: " << head->value << endl; 
     }
-}    
+}  
+
+void print_middle(Node* head)
+{
+    Node* slow = head;
+    Node* fast = head;
+
+    while(fast != nullptr && fast->next != nullptr)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    cout << "Middle element: " << slow->value << endl;
+}
 
 int main()
 {
@@ -58,5 +72,6 @@ int main()
     display(head);
     print_head(head);
     printTail(head);
+    print_middle(head);
     return 0;
 }
