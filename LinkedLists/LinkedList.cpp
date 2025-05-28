@@ -62,6 +62,26 @@ void print_middle(Node* head)
     cout << "Middle element: " << slow->value << endl;
 }
 
+Node* ReverseList(Node* head)
+{
+    if(head == nullptr)
+    {
+        return nullptr;
+    }
+
+    Node* newHead = nullptr;
+    Node* next = head;
+
+    while(next != nullptr)
+    {
+        next = head->next;
+        head->next = newHead;
+        newHead = head;
+        head = next;
+    }
+    return newHead;
+}
+
 int main()
 {
     Node *head = new Node(1);
@@ -73,5 +93,6 @@ int main()
     print_head(head);
     printTail(head);
     print_middle(head);
+    display(ReverseList(head));
     return 0;
 }
