@@ -2,7 +2,7 @@
 using namespace std;
 class Node
 {
-    public:
+  public:
 
     int value;
     Node* next;
@@ -82,17 +82,37 @@ Node* ReverseList(Node* head)
     return newHead;
 }
 
+bool detect_cycle(Node *head)
+{
+    Node* slow = head;
+    Node* fast = head;
+
+    while(fast != nullptr && fast->next != nullptr)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if(slow == fast)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 int main()
 {
     Node *head = new Node(1);
     Node *l1 = new Node(2);
     Node *l2 = new Node(3);
+    l2->next = head;
     head->next = l1;
     l1->next = l2;
-    display(head);
-    print_head(head);
-    printTail(head);
-    print_middle(head);
-    display(ReverseList(head));
+    // display(head);
+    // print_head(head);
+    // printTail(head);
+    // print_middle(head);
+    // display(ReverseList(head));
+   cout << detect_cycle(head) << endl;
     return 0;
 }
