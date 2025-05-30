@@ -3,7 +3,7 @@ using namespace std;
 class Node
 {
   public:
-
+  
     int value;
     Node* next;
 
@@ -21,7 +21,7 @@ void print_head(Node* head)
 }
 
 void display(Node *head)
-    {
+ {
 
         while(head != nullptr)
         {
@@ -29,7 +29,7 @@ void display(Node *head)
             head = head->next;
         }
         cout << endl;
-    }
+ }
 
 void printTail(Node* head)
 {
@@ -82,6 +82,12 @@ Node* ReverseList(Node* head)
     return newHead;
 }
 
+Node* remove_node(Node* head,int val)
+{
+    if(head == nullptr)
+       return nullptr;
+}
+
 bool detect_cycle(Node *head)
 {
     Node* slow = head;
@@ -105,14 +111,15 @@ int main()
     Node *head = new Node(1);
     Node *l1 = new Node(2);
     Node *l2 = new Node(3);
-    l2->next = head;
+    // l2->next = head;       // added this for creating a cycle in the list
     head->next = l1;
     l1->next = l2;
-    // display(head);
-    // print_head(head);
-    // printTail(head);
-    // print_middle(head);
-    // display(ReverseList(head));
+    display(head);
+    print_head(head);
+    printTail(head);
+    print_middle(head);
+    remove_node(head,2);
+    display(ReverseList(head));
    cout << detect_cycle(head) << endl;
     return 0;
 }
