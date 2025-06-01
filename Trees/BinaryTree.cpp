@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 class Node{
    
     public:
@@ -11,7 +14,19 @@ class Node{
              left = nullptr;
              right = nullptr;
            }
+    
 };
+
+     void in_order(Node* root)
+     {
+        if(root == nullptr)
+           return;
+
+           
+        in_order(root->left);
+        cout<< root->value << " " ;
+        in_order(root->right);
+     }  
 
 int main()
 {
@@ -20,6 +35,8 @@ int main()
     Node *l2 = new Node(3);
     root->left = l1;
     root->right = l2;
+    in_order(root);
+
 
     return 0;
 }
