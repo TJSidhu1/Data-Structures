@@ -22,11 +22,21 @@ class Node{
         if(root == nullptr)
            return;
 
-           
+
         in_order(root->left);
         cout<< root->value << " " ;
         in_order(root->right);
-     }  
+     } 
+     
+     void pre_order(Node *root)
+     {
+        if(root == nullptr)
+           return;
+
+        cout << root->value;
+        pre_order(root->left);
+        pre_order(root->right);   
+     }
 
 int main()
 {
@@ -36,7 +46,6 @@ int main()
     root->left = l1;
     root->right = l2;
     in_order(root);
-
 
     return 0;
 }
