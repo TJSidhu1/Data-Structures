@@ -38,6 +38,16 @@ class Node{
         pre_order(root->right);   
      }
 
+     void post_order(Node* root)
+     {
+        if(root == nullptr)
+           return;
+
+        post_order(root->left);
+        post_order(root->right);
+        cout << root->value;   
+     }
+
 int main()
 {
     Node *root = new Node(1);
