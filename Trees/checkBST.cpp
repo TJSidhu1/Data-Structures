@@ -37,7 +37,21 @@ bool isBST(Node* root)
     return helper(root, min, max);
 }
 
+bool isMirror(Node* root)
+{
+    if(root == nullptr)
+       return true;
 
+    Node* left = root->left;
+    Node* right = root->right;
+
+    if(left == right)
+       return true;
+
+    return false;   
+
+
+}
 
 int main()
 {
