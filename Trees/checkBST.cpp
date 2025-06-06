@@ -37,6 +37,15 @@ bool isBST(Node* root)
     return helper(root, min, max);
 }
 
+bool isMirrorHelp(Node* t1, Node* t2)
+{
+   if (!t1 && !t2) return true;
+        if (!t1 || !t2) return false;
+        return (t1->value == t2->value) &&
+               isMirrorHelp(t1->left, t2->right) &&
+               isMirrorHelp(t1->right, t2->left); 
+}
+
 bool isMirror(Node* root)
 {
     if(root == nullptr)
