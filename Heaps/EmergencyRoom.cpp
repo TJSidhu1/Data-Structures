@@ -1,3 +1,17 @@
+/*💼 Scenario: Hospital Emergency Room
+Each patient is represented as a struct with:
+
+name (string)
+
+severity (int) — higher number = more severe
+
+arrivalTime (int) — smaller number = earlier arrival
+
+🎯 Priority Rules:
+Higher severity patients come first.
+
+If severity is equal, earlier arrival comes first.
+Write a code to show which patients are processed according to the rules above.*/
 #include <iostream>
 #include <queue>
 using namespace std;
